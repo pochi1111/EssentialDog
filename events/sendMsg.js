@@ -5,7 +5,7 @@ module.exports = {
   async execute(interaction) {
     if (!interaction.isModalSubmit() || interaction.customId != "sendmsg") return;
     const content = interaction.fields.getTextInputValue("content");
-    await interaction.channel.send(content);
+    await interaction.channel.send(content + "\n-# (匿名によって送信)");
     await interaction.reply({
       content: "Message sent!",
       flags: MessageFlags.Ephemeral,
